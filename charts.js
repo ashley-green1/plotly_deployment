@@ -4,6 +4,7 @@ function init() {
 
   // Use the list of sample names to populate the select options
   d3.json("samples.json").then((data) => {
+    console.log(data);
     var sampleNames = data.names;
 
     sampleNames.forEach((sample) => {
@@ -27,7 +28,7 @@ function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
   buildCharts(newSample);
-  
+  console.log(newSample);
 }
 
 // Demographics Panel 
@@ -58,30 +59,42 @@ function buildCharts(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
   d3.json("samples.json").then((data) => {
     // 3. Create a variable that holds the samples array. 
-    var samplesArray = data.metadata;
-    console.log(samplesArray);
+    var samples = data.samples;
+    // test output console.log(samples);
+
     // 4. Create a variable that filters the samples for the object with the desired sample number.
+    var resultArray1 = samples.filter(sampleObj => sampleObj.id == sample);
+    // test output console.log(resultArray1);
 
     //  5. Create a variable that holds the first sample in the array.
-
+    var result1 = resultArray1[0];
+    console.log(result1);
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
+    var sampleLabels = result1.otu_ids;
+    // test output console.log(sampleLabels);
 
+    var sampleValues = result1.sample_values;
+    // test output console.log(sampleValues);
+
+    var hover_text = result1.otu_labels;
+    // test output console.log(hover_text);
 
     // 7. Create the yticks for the bar chart.
+    
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
 
-    var yticks = 
+    //var yticks = 
 
     // 8. Create the trace for the bar chart. 
-    var barData = [
+    //var barData = [
       
-    ];
+    //];
     // 9. Create the layout for the bar chart. 
-    var barLayout = {
+    //var barLayout = {
      
-    };
+    //};
     // 10. Use Plotly to plot the data with the layout. 
     
   });
