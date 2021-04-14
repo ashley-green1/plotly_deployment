@@ -122,7 +122,7 @@ function buildCharts(sample) {
 
     // D2.2. Create the layout for the bubble chart.
     var bubbleLayout = {
-      title: "Top 10 Bacteria Cultures Per Sample",
+      title: "Bacteria Cultures Per Sample",
       xaxis: {title: "OTU ID"}, 
       hovermode: 'closest',
       hoverlabel: hoverText
